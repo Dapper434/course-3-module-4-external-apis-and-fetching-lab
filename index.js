@@ -22,7 +22,7 @@ async function fetchWeatherAlerts(state) {
 
     try {
         const response = await fetch(weatherApi + state);
-        if (! response.ok) throw new  Error(Bad response: ${response.status})
+        if (! response.ok) throw new  Error(`Bad response: ${response.status}`)
 
         const data = await response.json()
         console.log(data)
@@ -44,7 +44,7 @@ function displayAlerts(data) {
     const title = data.title || 'Weather Alerts'
 
     const summary = document.createElement('p')
-    summary.textContent = ${title}: ${count}
+    summary.textContent = `${title}: ${count}`
 
     alertsDisplay.appendChild(summary)
 
